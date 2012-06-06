@@ -11,13 +11,23 @@
 		GPL <http://www.gnu.org/licenses/gpl.html>
 */
 ?>
+
+<script type="text/javascript">
+	$(function(){
+		$('div.filterForm span.filter_btn').click(function(){
+			$(this).next('fieldset').toggle();
+			$(this).toggleClass('minus');
+		});
+	});
+</script>
 <div class="filterForm">
 	<?php echo $form->create(false, array('url' => '/'.$this->params['url']['url'], 'id' => $modelName.'Filter')); ?>
+		<span class="filter_btn"><?php __('Filtre'); ?></span>
 		<fieldset>
 			<?php
 			if (isset($options['legend']))
 			{
-				?><legend><?php echo $options['legend']; ?></legend><?php
+				?><h3><?php echo $options['legend']; ?></h3><?php
 			}
 			?>
 			<?php echo $form->input('Filter.filterFormId', array('type' => 'hidden', 'value' => $modelName)); ?>

@@ -11,7 +11,8 @@
 		GPL <http://www.gnu.org/licenses/gpl.html>
 */
 ?>
+			<?php echo $form->submit(__('Filtrer', true)); ?>
+			<?php echo '<a href="'.$this->Html->url(array('action'=>'clearSession', Inflector::camelize(Inflector::pluralize($this->params['controller'])), $this->params['action'])).'">'.__('Annuler le filtre', true).'</a>'; ?>
 		</fieldset>
-		<?php echo $form->submit(__('Submit', true)); ?>
 	<?php echo $form->end(); ?>
 </div>
